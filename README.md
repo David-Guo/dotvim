@@ -28,7 +28,7 @@ vundle可以自动帮你到github上下载plugin到bundle目录下。
 安装方法： 
 
     cd ~/.vim
-    git submodule add https://github.com/gmarik/vundle.git bundle/vundle
+    git submodule add https://github.com/gmarik/vundle.git bundle/Vundle.vim
 
 这里是将vundle作为git的submodule，这样你的github repository中就不会直接存放vundle的文件，只是有一个vundle的链接。
 修改 ~/.vim/vimrc，添加以下内容：
@@ -59,7 +59,7 @@ plasticboy是用户名，如果插件用户名是vim-scripts，则可以省略�
 这里有个问题，vundle从github上下载插件时也是通过git命令的，但它是直接clone repository，这样你push你的.vim目录时就会把插件也push上去了。所以要在.gitignore文件中禁止提交插件目录bundle，但作为submodule存在的bundle/vundle目录还是要push的，修改.gitignore如下：
 
     bundle/
-    !bundle/vundle
+    !bundle/Vundle.vim
 
 ## for windows
 1. $HOME下的vim目录是vimfiles，所以以上的.vim都要换成vimfiles。
@@ -68,5 +68,19 @@ plasticboy是用户名，如果插件用户名是vim-scripts，则可以省略�
 
         source $VIM\_vimrc
         source ~\vimfiles\vimrc
+
+## 使用配置
+
+1. 安装: `git clone https://github.com/David-Guo/dotvim.git ~/.vim`
+2. link: `ln -s /.vim/vimrc ~/.vimrc`
+3. 进入 ~/.vim 目录取回submodules: 
+
+        git submodule init
+        git submodule update
+
+
+## 参考
+       
+http://vimcasts.org/episodes/synchronizing-plugins-with-git-submodules-and-pathogen/
 
 我的vim配置：https://github.com/David-Guo/dotvim
