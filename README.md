@@ -10,7 +10,7 @@
     ~/.vim/.gitignore
     ~/.vimrc
 其中~/.vimrc是~/.vim/vimrc的链接。创建方式如下：
-    
+ 
     ln -s ~/.vim/vimrc ~/.vimrc
 
 ##使用 github
@@ -33,19 +33,21 @@ vundle可以自动帮你到github上下载plugin到bundle目录下。
 这里是将vundle作为git的submodule，这样你的github repository中就不会直接存放vundle的文件，只是有一个vundle的链接。
 修改 ~/.vim/vimrc，添加以下内容：
 
-    set nocompatible
-    filetype off
-    if has("unix")
-        set rtp+=~/.vim/bundle/vundle/
-        call vundle#rc()
-    else 
-        set rtp+=~/vimfiles/bundle/vundle/
-        call vundle#rc('$HOME/vimfiles/bundle/')
-    endif
-    Bundle 'gmarik/vund'
-    Bundle 'plasticbo/vim-markdown' "optional
-    Bundle 'AutoComplPop' "optional
-    filetype on
+```vimrc
+set nocompatible
+filetype off
+if has("unix")
+    set rtp+=~/.vim/bundle/vundle/
+    call vundle#rc()
+else 
+    set rtp+=~/vimfiles/bundle/vundle/
+    call vundle#rc('$HOME/vimfiles/bundle/')
+endif
+Bundle 'gmarik/vund'
+Bundle 'plasticbo/vim-markdown' "optional
+Bundle 'AutoComplPop' "optional
+filetype on
+``````
 
 如果想安装插件，比如vim-markdown，插件地址：https://github.com/plasticboy/vim-markdown ，只需要在vimrc中添加以下一行：
 
@@ -80,7 +82,7 @@ plasticboy是用户名，如果插件用户名是vim-scripts，则可以省略�
 
 
 ## 参考
-       
+
 http://vimcasts.org/episodes/synchronizing-plugins-with-git-submodules-and-pathogen/
 
 我的vim配置：https://github.com/David-Guo/dotvim
